@@ -45,6 +45,7 @@ export const eventSlice = createSlice({
     },
     searchTraceUser_Clear(state) {
       state.traceUser = null;
+      state.list_searchTraceUsers = null;
     },
 
     searchTraceUsers(state) {
@@ -110,12 +111,13 @@ export const {
   searchTraceUsers,
   searchTraceUsers_Success,
   searchTraceUsers_Error,
+  searchTraceUser_Clear,
   getAttendees,
   getAttendees_Success,
   getAttendees_Error,
   addAttendee,
   addAttendee_Success,
-addAttendee_Error,
+  addAttendee_Error,
   updateAttendeeInfo,
   updateAttendeeInfo_Success,
 updateAttendeeInfo_Error

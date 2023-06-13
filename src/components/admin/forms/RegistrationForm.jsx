@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { CheckOutlined, CloudDownloadOutlined, MailOutlined } from "@ant-design/icons";
+import { CheckOutlined, CloudDownloadOutlined, FileSearchOutlined, MailOutlined, SearchOutlined } from "@ant-design/icons";
 import {
   Button,
   Checkbox,
@@ -9,6 +9,7 @@ import {
   Form,
   Input,
   Select,
+  Space,
   Typography,
   message,
 } from "antd";
@@ -211,7 +212,14 @@ const RegistrationForm = ({
             {
               toggleTraceButton && isEdit === false &&
               <div >
-                <Button type="default" onClick={handleSearchTraceUsers} loading={isLoading_searchTraceUsers}>Search name from T.R.A.C.E.</Button>
+                <Space>
+                  {
+                    list_searchTraceUsers.length ?
+                    <Button icon={<FileSearchOutlined />} type="default" onClick={()=>setIsVisibleTraceResultModal(true)}>Previous Search</Button> : ""
+                  }
+                  
+                  <Button icon={<SearchOutlined />} type="primary" onClick={handleSearchTraceUsers} loading={isLoading_searchTraceUsers}>Search name from T.R.A.C.E.</Button>
+                </Space>
                 <Divider />
               </div>
             }

@@ -4,7 +4,7 @@ import { Card, Form, Select, Space, message } from "antd";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addAttendee, getEvents } from "../../../store/slices/admin/eventSlice";
+import { addAttendee, getEvents, searchTraceUser_Clear } from "../../../store/slices/admin/eventSlice";
 import RegistrationForm from "../forms/RegistrationForm";
 
 const RegisterAttendee = () => {
@@ -44,6 +44,7 @@ const RegisterAttendee = () => {
         callback: ()=> {
           form.resetFields()
           form.setFieldValue('year', dayjs())
+          dispatch(searchTraceUser_Clear())
         }
       }))
     }else{

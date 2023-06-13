@@ -105,6 +105,7 @@ const RegistrationForm = ({
           </div>
             }
       </div>
+      
       <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-3">
         <Form.Item
           label="First Name"

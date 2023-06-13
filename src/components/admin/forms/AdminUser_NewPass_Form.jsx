@@ -19,7 +19,6 @@ const AdminUser_NewPass_Form = ({
     }
 
     const onFinish = (values) => {
-      console.log(values)
       dispatch(changeAdminUserPassword({
         body: {
           body: {password: values.password},

@@ -20,6 +20,10 @@ export const getEvents_api = async () => {
 export const searchTraceUser_api = async ({ params }) => {
   return await axiosDefault.get("/api/admin/cms/searchTraceUser/" + params);
 };
+
+export const searchTraceUsers_api = async (payload) => {
+  return await axiosDefault.post("/api/admin/cms/searchTraceUsers", payload);
+};
 export const getAttendees_api = async ({ params }) => {
   return await axiosDefault.get("/api/admin/cms/getAttendees/" + params);
 };

@@ -10,6 +10,9 @@ export const eventSlice = createSlice({
     isLoading_searchTraceUser: false,
     traceUser: null,
 
+    isLoading_searchTraceUsers: false,
+    list_searchTraceUsers: [],
+
     isLoading_getAttendees: false,
     list_getAttendees: [],
 
@@ -42,7 +45,21 @@ export const eventSlice = createSlice({
     },
     searchTraceUser_Clear(state) {
       state.traceUser = null;
+    },
 
+    searchTraceUsers(state) {
+      state.isLoading_searchTraceUsers = true;
+    },
+    searchTraceUsers_Success(state, { payload }) {
+      state.list_searchTraceUsers = payload;
+      state.isLoading_searchTraceUsers = false;
+    },
+    searchTraceUsers_Error(state, { payload }) {
+      message.warning(payload.message);
+      state.isLoading_searchTraceUsers = false;
+    },
+    searchTraceUsers_Clear(state) {
+      state.traceUser = null;
     },
 
     getAttendees(state) {
@@ -90,6 +107,9 @@ export const {
   searchTraceUser,
   searchTraceUser_Success,
   searchTraceUser_Error,
+  searchTraceUsers,
+  searchTraceUsers_Success,
+  searchTraceUsers_Error,
   getAttendees,
   getAttendees_Success,
   getAttendees_Error,

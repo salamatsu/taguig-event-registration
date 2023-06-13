@@ -57,30 +57,18 @@ const RegistrationForm = ({
 
   }, [form, name_watch]);
 
- const callback = () => {
-  if(traceUser){
+ const callback = (result) => {
+  if(result){
     form.setFieldsValue({
-      firstName:traceUser?.firstName,
-      middleName:traceUser?.middleName,
-      lastName:traceUser?.lastName,
-      birthdate: dayjs(traceUser.birthdate),
-      email:traceUser?.email,
-      sex:traceUser?.sex,
-      mobileNumber: traceUser?.mobileNumber?.substring(3),
-      guardianName:traceUser.contactPersonName,
-      guardianNumber: traceUser?.contactPersonNumber?.substring(3),
-    });
-    
-    form.setFieldsValue({
-      firstName:traceUser?.firstName,
-      middleName:traceUser?.middleName,
-      lastName:traceUser?.lastName,
-      birthdate: dayjs(traceUser.birthdate),
-      email:traceUser?.email,
-      sex:traceUser?.sex,
-      mobileNumber: traceUser?.mobileNumber?.substring(3),
-      guardianName: traceUser.contactPersonName,
-      guardianNumber: traceUser?.contactPersonNumber?.substring(3),
+      firstName:result?.firstName,
+      middleName:result?.middleName,
+      lastName:result?.lastName,
+      birthdate: dayjs(result.birthdate),
+      email:result?.email,
+      sex:result?.sex,
+      mobileNumber: result?.mobileNumber?.substring(3),
+      guardianName:result.contactPersonName,
+      guardianNumber: result?.contactPersonNumber?.substring(3),
     });
   }else{
     form.setFieldValue('qrCode', null)

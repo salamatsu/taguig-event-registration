@@ -43,7 +43,7 @@ function* searchTraceUser_Request({ payload }) {
   try {
     const {data} = yield call(searchTraceUser_api, payload.body);
     yield put(searchTraceUser_Success(data));
-    yield payload.callback();
+    yield payload.callback(data);
   } catch (error) {
     if (
       error.response?.status === 401 ||

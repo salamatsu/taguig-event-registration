@@ -1,4 +1,7 @@
-import { EditOutlined, UserOutlined } from "@ant-design/icons";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { EditOutlined, 
+  // UserOutlined
+ } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 
 import {
@@ -110,11 +113,11 @@ const Attendees = () => {
           >
             Edit
           </Button>
-          <Button icon={<UserOutlined />} 
+          {/* <Button icon={<UserOutlined />} 
           // onClick={onFinishEdit(true, data)}
           >
             View Information
-          </Button>
+          </Button> */}
         </Space>
       ),
     },

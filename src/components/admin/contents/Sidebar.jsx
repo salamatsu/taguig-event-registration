@@ -17,6 +17,11 @@ const items = [
     "/admin-attendees",
     <UserOutlined className="h-6 w-6" />
   ),
+  getItem(
+    <Link to="/admin-users">Users</Link>,
+    "/admin-users",
+    <UserOutlined className="h-6 w-6" />
+  ),
 ];
 
 // eslint-disable-next-line react/prop-types

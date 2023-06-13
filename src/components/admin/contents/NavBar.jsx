@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
-import { Avatar, Button, Dropdown, Layout, Space, Typography } from "antd";
-import React from "react";
+import { Avatar, Dropdown, Layout, Space, Typography } from "antd";
+import React, { useState } from "react";
 import {
   DownOutlined,
+  LockOutlined,
+  LogoutOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   RightOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import { useSelector } from "react-redux";
+import AdminUser_NewPass_Form from "../forms/AdminUser_NewPass_Form";
 
 const { Header } = Layout;
 const NavBar = ({
@@ -19,6 +22,7 @@ const NavBar = ({
   dropdownIcon,
 }) => {
   const { currentUser } = useSelector((state) => state.authSlice);
+  const [changePassModal, setChangePassModal] = useState(false);
 
   return (
     <Header
@@ -34,11 +38,32 @@ const NavBar = ({
 
       <Dropdown
         trigger="click"
-        dropdownRender={() => (
-          <Button type="primary" className=" w-full" onClick={handleSignout}>
-            Logout
-          </Button>
-        )}
+        className=" cursor-pointer"
+        menu={{
+          items: [
+            {
+              key: "password",
+              label: "Change Password",
+              icon: <LockOutlined />,
+              onClick: ()=> setChangePassModal(true)
+            },
+            {
+              type: "divider",
+            },
+            {
+              key: "logout",
+              danger: true,
+              label: "Sign out",
+              icon: <LogoutOutlined />,
+              onClick: handleSignout,
+            },
+          ],
+        }}
+        // dropdownRender={() => (
+        //   <Button type="primary" className=" w-full" onClick={handleSignout}>
+        //     Logout
+        //   </Button>
+        // )}
         onOpenChange={setDropdownIcon}
       >
         <Space className=" userHeader">
@@ -49,6 +74,8 @@ const NavBar = ({
           {dropdownIcon ? <DownOutlined /> : <RightOutlined />}
         </Space>
       </Dropdown>
+      <AdminUser_NewPass_Form open={changePassModal} onClose={()=>setChangePassModal(false)} />
+
     </Header>
   );
 };

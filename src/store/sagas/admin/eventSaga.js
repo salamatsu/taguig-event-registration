@@ -75,6 +75,7 @@ function* searchTraceUsers_Request({ payload }) {
     yield put(searchTraceUsers_Success(data));
     yield payload.callback(data);
   } catch (error) {
+    console.log(error)
     if (
       error.response?.status === 401 ||
       error.response?.status === 403 ||
